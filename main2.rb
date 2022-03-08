@@ -73,3 +73,6 @@ renderer.window.run do
 
   renderer.render(scene, camera)
 end
+
+
+# ああああああああああああああ
