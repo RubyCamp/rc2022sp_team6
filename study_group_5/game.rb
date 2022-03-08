@@ -18,6 +18,21 @@ class Game
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
+
+    @enemies2 = []
+    2.times do
+      enemy2 = Enemy2.new(5.0, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy2.mesh)
+      @enemies2 << enemy2
+    end
+
+    @enemies3 = []
+    2.times do
+      enemy3 = Enemy3.new(-5.0, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy3.mesh)
+      @enemies3 << enemy3
+    end
+
     
     @player = Player.new(0.0, 0.0, 10.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
@@ -30,6 +45,13 @@ class Game
     @enemies.each do |enemy|
       enemy.update
     end
+    @enemies2.each do |enemy|
+      enemy.update
+    end
+
+    @enemies3.each do |enemy|
+      enemy.update
+
 
     @player.check(@enemies)
 
