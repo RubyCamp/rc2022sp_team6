@@ -3,6 +3,11 @@ require_relative 'enemy'
 require_relative 'score'
 require_relative 'enemy2'
 require_relative 'enemy3'
+require_relative 'enemy4'
+require_relative 'enemy5'
+require_relative 'enemy6'
+require_relative 'enemy7'
+
 
 
 class Game
@@ -31,11 +36,38 @@ class Game
 
     @enemies3 = []
     2.times do
-      enemy3 = Enemy3.new(-5.0, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      enemy3 = Enemy3.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
       @scene.add(enemy3.mesh)
       @enemies3 << enemy3
     end
 
+    @enemies4 = []
+    2.times do
+      enemy4 = Enemy4.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy4.mesh)
+      @enemies4 << enemy4
+    end
+
+    @enemies5 = []
+    2.times do
+      enemy5 = Enemy5.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy5.mesh)
+      @enemies5 << enemy5
+    end
+
+    @enemies6 = []
+    2.times do
+      enemy6 = Enemy6.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy6.mesh)
+      @enemies6 << enemy6
+    end
+
+    @enemies7 = []
+    2.times do
+      enemy7 = Enemy7.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy7.mesh)
+      @enemies7 << enemy7
+    end
     
     @player = Player.new(0.0, 0.0, 10.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
@@ -53,6 +85,22 @@ class Game
     end
 
     @enemies3.each do |enemy|
+      enemy.update
+    end
+
+    @enemies4.each do |enemy|
+      enemy.update
+    end
+
+    @enemies5.each do |enemy|
+      enemy.update
+    end
+
+    @enemies6.each do |enemy|
+      enemy.update
+    end
+
+    @enemies7.each do |enemy|
       enemy.update
     end
 
