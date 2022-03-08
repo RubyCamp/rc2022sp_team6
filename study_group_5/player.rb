@@ -27,7 +27,7 @@ class Player
   end
 
   def update
-    @mesh.position.z -= 0.06
+    @mesh.position.z -= 0.05
     @mesh.position.y += 0.1 if @renderer.window.key_down?(GLFW_KEY_UP)
     @mesh.position.y -= 0.1 if @renderer.window.key_down?(GLFW_KEY_DOWN)
     @mesh.position.x -= 0.1 if @renderer.window.key_down?(GLFW_KEY_LEFT)
