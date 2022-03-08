@@ -28,12 +28,44 @@ class Player
 
   def update
     @mesh.position.z -= 0.07
-    @mesh.position.y += 0.1 if @renderer.window.key_down?(GLFW_KEY_UP)
-    @mesh.position.y -= 0.1 if @renderer.window.key_down?(GLFW_KEY_DOWN)
-    @mesh.position.x -= 0.1 if @renderer.window.key_down?(GLFW_KEY_LEFT)
-    @mesh.position.x += 0.1 if @renderer.window.key_down?(GLFW_KEY_RIGHT)
-    @mesh.position.z += 0.1 if @renderer.window.key_down?(GLFW_KEY_Z)
-    @mesh.position.z -= 0.1 if @renderer.window.key_down?(GLFW_KEY_A)
+
+    if @renderer.window.key_down?(GLFW_KEY_UP)
+      @mesh.position.y +=0.1
+      if @mesh.position.y <5.0
+        @mesh.position.y = 5.0
+      end
+    end
+
+    if @renderer.window.key_down?(GLFW_KEY_DOWN)
+      @mesh.position.y -=0.1
+      if @mesh.position.y <-5.0
+        @mesh.position.y = -5.0
+      end
+    end
+
+    if @renderer.window.key_down?(GLFW_KEY_LEFT)
+      @mesh.position.x -=0.1
+      if @mesh.position.x <-5.0
+        @mesh.position.x = -5.0
+      end
+    end
+
+    if @renderer.window.key_down?(GLFW_KEY_RIGHT)
+      @mesh.position.x +=0.1
+      if @mesh.position.x <5.0
+        @mesh.position.x = 5.0
+      end
+    end
+
+
+
+
+    # @mesh.position.y += 0.1 if @renderer.window.key_down?(GLFW_KEY_UP)
+    # @mesh.position.y -= 0.1 if @renderer.window.key_down?(GLFW_KEY_DOWN)
+    # @mesh.position.x -= 0.1 if @renderer.window.key_down?(GLFW_KEY_LEFT)
+    # @mesh.position.x += 0.1 if @renderer.window.key_down?(GLFW_KEY_RIGHT)
+    # @mesh.position.z += 0.1 if @renderer.window.key_down?(GLFW_KEY_Z)
+    # @mesh.position.z -= 0.1 if @renderer.window.key_down?(GLFW_KEY_A)
 
     @bullets.each do |bullet|
       bullet.update
