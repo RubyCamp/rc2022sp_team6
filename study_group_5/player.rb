@@ -31,28 +31,28 @@ class Player
 
     if @renderer.window.key_down?(GLFW_KEY_UP)
       @mesh.position.y +=0.1
-      if @mesh.position.y <5.0
+      if @mesh.position.y > 5.0
         @mesh.position.y = 5.0
       end
     end
 
     if @renderer.window.key_down?(GLFW_KEY_DOWN)
-      @mesh.position.y -=0.1
-      if @mesh.position.y <-5.0
+      @mesh.position.y -= 0.1
+      if @mesh.position.y < -5.0
         @mesh.position.y = -5.0
       end
     end
 
     if @renderer.window.key_down?(GLFW_KEY_LEFT)
       @mesh.position.x -=0.1
-      if @mesh.position.x <-5.0
+      if @mesh.position.x < -5.0
         @mesh.position.x = -5.0
       end
     end
 
     if @renderer.window.key_down?(GLFW_KEY_RIGHT)
       @mesh.position.x +=0.1
-      if @mesh.position.x <5.0
+      if @mesh.position.x > 5.0
         @mesh.position.x = 5.0
       end
     end
