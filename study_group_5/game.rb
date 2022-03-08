@@ -1,6 +1,9 @@
 require_relative 'player'
 require_relative 'enemy'
 require_relative 'score'
+require_relative 'enemy2'
+require_relative 'enemy3'
+
 
 class Game
   def initialize(renderer, screen_width, screen_height)
