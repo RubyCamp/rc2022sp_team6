@@ -51,6 +51,7 @@ class Game
 
     @enemies3.each do |enemy|
       enemy.update
+    end
 
 
     @player.check(@enemies)
