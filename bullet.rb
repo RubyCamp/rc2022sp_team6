@@ -1,3 +1,4 @@
+# jikkenn
 class Bullet
   attr_accessor :mesh
 
