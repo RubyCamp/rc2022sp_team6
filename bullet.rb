@@ -2,6 +2,7 @@
 class Bullet
   attr_accessor :mesh
 
+  #テスト
   def initialize(x, y, z)
     @mesh = Mittsu::Mesh.new(
       Mittsu::BoxGeometry.new(0.2, 0.2, 0.2),
