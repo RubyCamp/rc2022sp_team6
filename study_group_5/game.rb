@@ -21,55 +21,41 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = []
-    5.times do
-      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy.mesh)
-      @enemies << enemy
-    end
+    enemy = Enemy.new(0, -2, 0, @renderer, @scene)
+    @scene.add(enemy.mesh)
+    @enemies << enemy
 
     @enemies2 = []
-    2.times do
-      enemy2 = Enemy2.new(5.0, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy2.mesh)
-      @enemies2 << enemy2
-    end
+    enemy2 = Enemy2.new(2.5, 1.5, 4, @renderer, @scene)
+    @scene.add(enemy2.mesh)
+    @enemies2 << enemy2
 
     @enemies3 = []
-    2.times do
-      enemy3 = Enemy3.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy3.mesh)
-      @enemies3 << enemy3
-    end
+    enemy3 = Enemy3.new(-0.5, 3.5, 4, @renderer, @scene)
+    @scene.add(enemy3.mesh)
+    @enemies3 << enemy3
 
     @enemies4 = []
-    2.times do
-      enemy4 = Enemy4.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy4.mesh)
-      @enemies4 << enemy4
-    end
+    enemy4 = Enemy4.new(2.0, 3, 0.0, @renderer, @scene)
+    @scene.add(enemy4.mesh)
+    @enemies4 << enemy4
 
     @enemies5 = []
-    2.times do
-      enemy5 = Enemy5.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy5.mesh)
-      @enemies5 << enemy5
-    end
+    enemy5 = Enemy5.new(1.0, 4, 0.0, @renderer, @scene)
+    @scene.add(enemy5.mesh)
+    @enemies5 << enemy5
 
     @enemies6 = []
-    2.times do
-      enemy6 = Enemy6.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy6.mesh)
-      @enemies6 << enemy6
-    end
+    enemy6 = Enemy6.new(0, 5, 0.0, @renderer, @scene)
+    @scene.add(enemy6.mesh)
+    @enemies6 << enemy6
 
     @enemies7 = []
-    2.times do
-      enemy7 = Enemy7.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
-      @scene.add(enemy7.mesh)
-      @enemies7 << enemy7
-    end
-    
-    @player = Player.new(0.0, 0.0, 10.0, @renderer, @scene, @score)
+    enemy7 = Enemy7.new(1, 0, 4, @renderer, @scene)
+    @scene.add(enemy7.mesh)
+    @enemies7 << enemy7
+
+    @player = Player.new(0.0, 0, 10.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end
@@ -80,6 +66,7 @@ class Game
     @enemies.each do |enemy|
       enemy.update
     end
+
     @enemies2.each do |enemy|
       enemy.update
     end

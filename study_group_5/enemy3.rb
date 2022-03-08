@@ -3,7 +3,7 @@ class Enemy3  # 左側の障害物
 
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(5.0, 1.0, 1.0),
+      Mittsu::BoxGeometry.new(5, 1, 2),
       Mittsu::MeshBasicMaterial.new(color: 0x000066)
     )
     @mesh.position.set(x, y, z)

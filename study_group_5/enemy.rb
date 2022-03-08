@@ -3,7 +3,7 @@ class Enemy
 
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(1.0, 1.0, 1.0),
+      Mittsu::BoxGeometry.new(10, 2, 20),
       Mittsu::MeshBasicMaterial.new(color: 0x0000ff)
     )
     @mesh.position.set(x, y, z)
