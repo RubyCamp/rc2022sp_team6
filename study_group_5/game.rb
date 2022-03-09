@@ -1,5 +1,5 @@
 require_relative 'player'
-require_relative 'enemy'
+require_relative 'boss'
 require_relative 'score'
 require_relative 'enemy2'
 require_relative 'enemy3'
