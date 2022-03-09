@@ -3,6 +3,7 @@ require_relative 'bullet'
 class Player
   attr_accessor :mesh
   attr_reader :bullets
+  attr_accessor :camera
 
   def initialize(x, y, z, renderer, scene, score)
     @mesh = Mittsu::Mesh.new(
@@ -29,17 +30,19 @@ class Player
           # shotcount -= 1
         end
       end
+
+      # if @mesh.position.z < -42
+      #   def self.create_kuria
+      #     Mittsu::ImageUtils.load_texture('images/kuria.png')
+      #   end
+      # end
     end
-    
+
     @score = score
   end
 
   def update
     @mesh.position.z -= 0.12
-    # if @mesh.position.z > -45
-    #   Mittsu::ImageUtils.("imgs/kuria.png")
-    # end
-
 
     if @renderer.window.key_down?(GLFW_KEY_UP)
       @mesh.position.y +=0.1
