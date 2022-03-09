@@ -6,7 +6,7 @@ class Player
 
   def initialize(x, y, z, renderer, scene, score)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(1, 1, 1),
+      Mittsu::BoxGeometry.new(5, 5, 5),
       Mittsu::MeshBasicMaterial.new(color: 0x0ff00)
     )
     @mesh.position.set(x, y, z)
@@ -35,7 +35,7 @@ class Player
   end
 
   def update
-    @mesh.position.z -= 0.03
+    @mesh.position.z -= 0.1
 
     if @renderer.window.key_down?(GLFW_KEY_UP)
       @mesh.position.y +=0.1
@@ -80,7 +80,7 @@ class Player
     end
   end
 
-  def check(enemies)
+  def check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
     enemies.each do |enemy|
       @bullets.each do |bullet|
         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
@@ -88,10 +88,90 @@ class Player
           @scene.remove(bullet.mesh)
           @bullets.delete(bullet)
           @score.points += 1
-        else
-          # 衝突してない
         end
       end
+      # if @player.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+      #   @player.mesh.position.set(0, 0, 20)
+      # end
+
     end
+
+#     enemies2.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
+
+#     enemies4.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
+
+#     enemies5.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
+
+#     enemies6.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
+
+#     enemies7.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
+
+#     enemies.each do |enemy|
+#       @bullets.each do |bullet|
+#         if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
+#           enemy.mesh.material.color.set(0xff0000)
+#           @scene.remove(bullet.mesh)
+#           @bullets.delete(bullet)
+#           @score.points += 1
+#         else
+#           # 衝突してない
+#         end
+#       end
+#     end
   end
 end

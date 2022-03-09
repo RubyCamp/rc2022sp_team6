@@ -26,7 +26,7 @@ class Game
 
     @enemies = [] # 的
     5.times do
-      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -50.0, @renderer, @scene)
+      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -27, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
@@ -40,8 +40,8 @@ class Game
 
 
     # 赤い壁 Z=-15.0
-    @enemy3 = Enemy3.new(0.0, 0.0, -15.0, @renderer, @scene)
-    @scene.add(@enemy3.mesh)
+    # @enemy3 = Enemy3.new(0.0, 0.0, -15.0, @renderer, @scene)
+    # @scene.add(@enemy3.mesh)
 
     @enemies4 = [] # オレンジの多面体（回転）Z=-10.0
     5.times do
@@ -94,7 +94,7 @@ class Game
       enemy.update
     end
 
-    @enemy3.update
+    # @enemy3.update
 
     @enemies4.each do |enemy|
       enemy.update
@@ -116,7 +116,7 @@ class Game
       enemy.update
     end
 
-    @player.check(@enemies)
+    @player.check(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @score.update_points
     @player.bullets.each do |bullet|
