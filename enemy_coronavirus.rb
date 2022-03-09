@@ -17,7 +17,7 @@ class Enemy_virus
 
       #棒部分
       lines = []
-      24.times do
+      19.times do
         line = Mittsu::Mesh.new(
               Mittsu::CylinderGeometry.new(0.05, 0.05, 2*line_long),
               Mittsu::MeshBasicMaterial.new(color: 0x8b008b)
@@ -27,7 +27,7 @@ class Enemy_virus
       
       #小さい球部分
       spheres = []
-      24.times do
+      19.times do
         sphere = Mittsu::Mesh.new(
               Mittsu::SphereGeometry.new(0.1, 4, 4),
               Mittsu::MeshBasicMaterial.new(color: 0xff7f50)
@@ -39,34 +39,37 @@ class Enemy_virus
       
       #スパイクの追加
       for i in 0..7 do
-        @mesh.add(lines[i])
-        @mesh.add(spheres[i])
-        lines[i].position.x = Math.sin(Math::PI/4*i)*body_radius
-        lines[i].position.y = Math.cos(Math::PI/4*i)*body_radius
-        lines[i].rotation.z = -Math::PI/4*i
-        spheres[i].position.x = Math.sin(Math::PI/4*i)*(body_radius+line_long)
-        spheres[i].position.y = Math.cos(Math::PI/4*i)*(body_radius+line_long)
+        mesh.add(lines[i])
+        mesh.add(spheres[i])
+        theta_virus = Math::PI/4*i
+        lines[i].position.x = Math.sin(theta_virus)*body_radius
+        lines[i].position.y = Math.cos(theta_virus)*body_radius
+        lines[i].rotation.z = -theta_virus
+        spheres[i].position.x = Math.sin(theta_virus)*(body_radius+line_long)
+        spheres[i].position.y = Math.cos(theta_virus)*(body_radius+line_long)
       end
       
-      for i in 0..7 do
-        @mesh.add(lines[i+8])
-        @mesh.add(spheres[i+8])
-        lines[i+8].position.x = Math.sin(Math::PI/4*i)*body_radius
-        lines[i+8].position.z = Math.cos(Math::PI/4*i)*body_radius
-        lines[i+8].rotation.z = -Math::PI/4*i
-        lines[i+8].rotation.x = Math::PI/2
-        spheres[i+8].position.x = Math.sin(Math::PI/4*i)*(body_radius+line_long)
-        spheres[i+8].position.z = Math.cos(Math::PI/4*i)*(body_radius+line_long)
+      for i in 1..7 do
+        mesh.add(lines[i+7])
+        mesh.add(spheres[i+7])
+        theta_virus = Math::PI/4*i
+        lines[i+7].position.z = Math.sin(theta_virus)*body_radius
+        lines[i+7].position.x = Math.cos(theta_virus)*body_radius
+        lines[i+7].rotation.y = -theta_virus
+        lines[i+7].rotation.z = -Math::PI/2
+        spheres[i+7].position.z = Math.sin(theta_virus)*(body_radius+line_long)
+        spheres[i+7].position.x = Math.cos(theta_virus)*(body_radius+line_long)
       end
       
-      for i in 0..7 do
-        @mesh.add(lines[i+16])
-        @mesh.add(spheres[i+16])
-        lines[i+16].position.z = Math.sin(Math::PI/4*i)*body_radius
-        lines[i+16].position.y = Math.cos(Math::PI/4*i)*body_radius
-        lines[i+16].rotation.x = Math::PI/4*i
-        spheres[i+16].position.z = Math.sin(Math::PI/4*i)*(body_radius+line_long)
-        spheres[i+16].position.y = Math.cos(Math::PI/4*i)*(body_radius+line_long)
+      for i in 1..4 do
+        mesh.add(lines[i+14])
+        mesh.add(spheres[i+14])
+        theta_virus = Math::PI/4 + Math::PI/2*i
+        lines[i+14].position.z = Math.sin(theta_virus)*body_radius
+        lines[i+14].position.y = Math.cos(theta_virus)*body_radius
+        lines[i+14].rotation.x = theta_virus
+        spheres[i+14].position.z = Math.sin(theta_virus)*(body_radius+line_long)
+        spheres[i+14].position.y = Math.cos(theta_virus)*(body_radius+line_long)
       end
       
       @mesh.position.set(x, y, z)
