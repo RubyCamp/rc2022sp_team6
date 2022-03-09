@@ -11,9 +11,14 @@ class Bullet
       Mittsu::MeshPhongMaterial.new(color: 0xDFD000)
     )
     @mesh.position.set(x, y, z)
+    @gravitytop=0.01
+    # @gravitydown=1
   end
 
+    
   def update
     @mesh.position.z -= 0.2
+    @gravitytop *= 1.12
+     @mesh.position.y -= @gravitytop
   end
 end

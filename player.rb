@@ -15,13 +15,16 @@ class Player
     
     @bullets = []
     shotcount = 10
+    lasttime=Time.now
     @renderer.window.on_key_typed do |key|
       case key
       when GLFW_KEY_SPACE
-        if shotcount > 0
+        nowtime=Time.now
+        if shotcount > 0 && nowtime-lasttime > 1
           bullet = Bullet.new(@mesh.position.x, @mesh.position.y, @mesh.position.z)
           @scene.add(bullet.mesh)
           @bullets << bullet
+          lasttime =nowtime
           shotcount -= 1
         end
       end
