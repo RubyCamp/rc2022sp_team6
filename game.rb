@@ -24,9 +24,11 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = []
-    enemy = Enemy.new(0, -2, 0, @renderer, @scene)
-    @scene.add(enemy.mesh)
-    @enemies << enemy
+    5.times do
+      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -5, @renderer, @scene)
+      @scene.add(enemy.mesh)
+      @enemies << enemy
+    end
 
     @enemies2 = []
     enemy2 = Enemy2.new(2.5, 1.5, 4, @renderer, @scene)
