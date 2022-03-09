@@ -17,7 +17,7 @@ class Bullet
 
     
   def update
-    @mesh.position.z -= 0.3
+    @mesh.position.z -= 0.45
     @gravitytop *= 1.12
      @mesh.position.y -= @gravitytop
   end
