@@ -3,8 +3,11 @@ class Bullet
 
   def initialize(x, y, z)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(0.2, 0.2, 0.2),
-      Mittsu::MeshBasicMaterial.new(color: 0x00ff00)
+      # Mittsu::BoxGeometry.new(0.05, 0.05, 0.25),
+      # Mittsu::BoxGeometry.new(1, 1, 1, 4, 4, 4),
+      Mittsu::SphereGeometry.new(0.1, 16, 16),
+      # Mittsu::PlaneGeometry.new(4, 1, 4, 4),
+      Mittsu::MeshLambertMaterial.new(color: 0xc5a3cb)
     )
     @mesh.position.set(x, y, z)
   end

@@ -16,8 +16,11 @@ class Game
     renderer.auto_clear = false
 
     @scene = Mittsu::Scene.new
+    light = Mittsu::DirectionalLight.new(0xffffff, intensity = 1)
+    light.position.set(50, 50, 1)
+    @scene.add(light)
     @camera = Mittsu::PerspectiveCamera.new(75.0, ASPECT, 0.1, 1000.0)
-    # camera.position.z = 10.0
+    # camera.position.z = 20.0
     @score = Score.new(screen_width, screen_height)
 
     @enemies = []
