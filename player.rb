@@ -14,12 +14,16 @@ class Player
     @scene = scene
     
     @bullets = []
+    shotcount = 10
     @renderer.window.on_key_typed do |key|
       case key
       when GLFW_KEY_SPACE
-        bullet = Bullet.new(@mesh.position.x, @mesh.position.y, @mesh.position.z)
-        @scene.add(bullet.mesh)
-        @bullets << bullet
+        if shotcount > 0
+          bullet = Bullet.new(@mesh.position.x, @mesh.position.y, @mesh.position.z)
+          @scene.add(bullet.mesh)
+          @bullets << bullet
+          shotcount -= 1
+        end
       end
     end
     
