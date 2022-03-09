@@ -18,7 +18,7 @@ class Game
 
     @scene = Mittsu::Scene.new
     light = Mittsu::DirectionalLight.new(0xffffff, intensity = 1)
-    light.position.set(50, 50, 1)
+    light.position.set(100, 100, 100)
     @scene.add(light)
     @camera = Mittsu::PerspectiveCamera.new(75.0, ASPECT, 0.1, 1000.0)
     # camera.position.z = 20.0
@@ -26,10 +26,24 @@ class Game
 
     @enemies = [] # 的
     5.times do
-      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -27, @renderer, @scene)
+      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -30, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
+    # k = Time.now
+    # @renderer.window.on_key_typed do |key|
+    #   case key
+    #   when GLFW_KEY_SPACE
+    #     n = Time.now
+    #     if  n - k > 1
+    #       5.times do
+    #         enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -30, @renderer, @scene)
+    #         @scene.add(enemy.mesh)
+    #         @enemies << enemy
+    #       end
+    #     end
+    #   end
+    # end
 
     @enemies2 = [] # ノット
     10.times do
@@ -78,7 +92,7 @@ class Game
       @enemies_virus << enemy_virus
     end
 
-    @player = Player.new(0.0, 0, 20.0, @renderer, @scene, @score)
+    @player = Player.new(0.0, 0, -10.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end
