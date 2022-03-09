@@ -23,44 +23,54 @@ class Game
     # camera.position.z = 20.0
     @score = Score.new(screen_width, screen_height)
 
-    @enemies = []
+    @enemies = [] # 的
     5.times do
-      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -5, @renderer, @scene)
+      enemy = Enemy.new((rand(1..5) - 3).to_f, (rand(1..5) -3).to_f, -50.0, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
 
-    @enemies2 = []
-    enemy2 = Enemy2.new(2.5, 1.5, 4, @renderer, @scene)
-    @scene.add(enemy2.mesh)
-    @enemies2 << enemy2
+    @enemies2 = [] # ノット
+    10.times do
+      enemy2 = Enemy2.new((rand(1..10) -3), (rand(1..5) -3).to_f, -25.0, @renderer, @scene)
+      @scene.add(enemy2.mesh)
+      @enemies2 << enemy2
+    end
 
-    @enemies3 = []
-    enemy3 = Enemy3.new(-0.5, 3.5, 4, @renderer, @scene)
-    @scene.add(enemy3.mesh)
-    @enemies3 << enemy3
 
-    @enemies4 = []
-    enemy4 = Enemy4.new(2.0, 3, 0.0, @renderer, @scene)
-    @scene.add(enemy4.mesh)
-    @enemies4 << enemy4
+    # 赤い壁 Z=-15.0
+    @enemy3 = Enemy3.new(0.0, 0.0, -15.0, @renderer, @scene)
+    @scene.add(@enemy3.mesh)
 
-    @enemies5 = []
-    enemy5 = Enemy5.new(1.0, 4, 0.0, @renderer, @scene)
-    @scene.add(enemy5.mesh)
-    @enemies5 << enemy5
+    @enemies4 = [] # オレンジの多面体（回転）Z=-10.0
+    5.times do
+      enemy4 = Enemy4.new((rand(1..20) - 3).to_f, 3.0, -10.0, @renderer, @scene)
+      @scene.add(enemy4.mesh)
+      @enemies4 << enemy4
+    end
 
-    @enemies6 = []
-    enemy6 = Enemy6.new(0, 5, 0.0, @renderer, @scene)
-    @scene.add(enemy6.mesh)
-    @enemies6 << enemy6
+    @enemies5 = [] # pink色の壁 Z=-5.0
+    2.times do
+      enemy5 = Enemy5.new(-5.0, (rand(1..5) -3).to_f, -5.0, @renderer, @scene)
+      @scene.add(enemy5.mesh)
+      @enemies5 << enemy5
+    end
 
-    @enemies7 = []
-    enemy7 = Enemy7.new(1, 0, 4, @renderer, @scene)
-    @scene.add(enemy7.mesh)
-    @enemies7 << enemy7
+    @enemies6 = [] # mintの球 Z=1.0
+    1.times do
+      enemy6 = Enemy6.new(0.0, -8.0, 1.0, @renderer, @scene)
+      @scene.add(enemy6.mesh)
+      @enemies6 << enemy6
+    end
 
-    @player = Player.new(0.0, 0, 10.0, @renderer, @scene, @score)
+    @enemies7 = [] # たまご色の壁 Z=15
+    2.times do
+      enemy7 = Enemy7.new(3.0, (rand(1..5) -3).to_f, 15.0, @renderer, @scene)
+      @scene.add(enemy7.mesh)
+      @enemies7 << enemy7
+    end
+
+    @player = Player.new(0.0, 0, 20.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end
@@ -76,9 +86,7 @@ class Game
       enemy.update
     end
 
-    @enemies3.each do |enemy|
-      enemy.update
-    end
+    @enemy3.update
 
     @enemies4.each do |enemy|
       enemy.update
