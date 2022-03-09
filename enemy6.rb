@@ -1,10 +1,10 @@
-class Enemy6  # redの障害物
+class Enemy6  # mintの障害物
   attr_accessor :mesh
 
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(1.0, 1.0, 1.0),
-      Mittsu::MeshBasicMaterial.new(color: 0xB71234) # red
+      Mittsu::SphereGeometry.new(5, 32, 16),
+      Mittsu::MeshBasicMaterial.new(color: 0x6deeccf) # mint
     )
     @mesh.position.set(x, y, z)
 

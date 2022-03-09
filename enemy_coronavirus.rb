@@ -4,15 +4,18 @@ class Enemy_virus
     def initialize(x, y, z, renderer, scene)
       @mesh = Mittsu::Group.new
       
-      body_radius = 0.5
-      line_long = 0.2
+      body_radius = 0.5 #球の半径
+      line_long = 0.2   #スパイクの長さ
 
       @mesh = Mittsu::Group.new
+
+      #本体部分
       body = Mittsu::Mesh.new(
         Mittsu::SphereGeometry.new(body_radius, 16, 16),
         Mittsu::MeshBasicMaterial.new(color: 0x8b008b)
       )
 
+      #棒部分
       lines = []
       27.times do
         line = Mittsu::Mesh.new(
@@ -22,6 +25,7 @@ class Enemy_virus
         lines << line
       end
       
+      #小さい球部分
       spheres = []
       27.times do
         sphere = Mittsu::Mesh.new(
@@ -33,6 +37,7 @@ class Enemy_virus
       
       @mesh.add(body)
       
+      #スパイクの追加
       for i in 0..8 do
         @mesh.add(lines[i])
         @mesh.add(spheres[i])

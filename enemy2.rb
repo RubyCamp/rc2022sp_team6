@@ -1,10 +1,10 @@
-class Enemy2  # 右側の障害物
+class Enemy2  # 小さい障害物ノット
   attr_accessor :mesh
 
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(1.0, 5, 2.0),
-      Mittsu::MeshBasicMaterial.new(color: 0xffffff)
+      Mittsu::TorusKnotGeometry.new(0.5, 0.15),
+      Mittsu::MeshBasicMaterial.new(color: 0x009140)
     )
     @mesh.position.set(x, y, z)
 
