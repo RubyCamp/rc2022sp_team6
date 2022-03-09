@@ -13,7 +13,7 @@ class Enemy
   end
 
   def update
-    # @mesh.rotation.x += 0.1
-    # @mesh.rotation.y += 0.1
+    @mesh.rotation.x += 0.1
+    @mesh.rotation.y += 0.1
   end
 end
