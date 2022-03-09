@@ -109,17 +109,14 @@ class Game
 
     @score.update_points
     @player.bullets.each do |bullet|
-     
-      if bullet.position.y <= -5
-        @scene.remove(bullet)
+      if bullet.mesh.position.y <= -10
+        @scene.remove(bullet.mesh)
+        @player.bullets.delete(bullet)
+        puts 1111
       end
     end
     @renderer.clear
     @renderer.render(@scene, @camera)
     @renderer.render(@score.scene, @score.camera)
-
-   
-    
-  
   end
 end
