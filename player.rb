@@ -36,6 +36,10 @@ class Player
 
   def update
     @mesh.position.z -= 0.12
+    # if @mesh.position.z > -45
+    #   Mittsu::ImageUtils.("imgs/kuria.png")
+    # end
+
 
     if @renderer.window.key_down?(GLFW_KEY_UP)
       @mesh.position.y +=0.1
