@@ -92,7 +92,7 @@ class Game
       @enemies_virus << enemy_virus
     end
 
-    @player = Player.new(0.0, 0, -10.0, @renderer, @scene, @score)
+    @player = Player.new(0.0, 0, 20.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end
