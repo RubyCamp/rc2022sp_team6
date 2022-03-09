@@ -7,6 +7,7 @@ require_relative 'enemy4'
 require_relative 'enemy5'
 require_relative 'enemy6'
 require_relative 'enemy7'
+require_relative 'enemy_coronavirus'
 
 
 
@@ -70,6 +71,13 @@ class Game
       @enemies7 << enemy7
     end
 
+    @enemies_virus = [] #コロナウイルス
+    5.times do
+      enemy_virus = Enemy_virus.new((rand(1..5) -3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+      @scene.add(enemy_virus.mesh)
+      @enemies_virus << enemy_virus
+    end
+
     @player = Player.new(0.0, 0, 20.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
@@ -104,6 +112,9 @@ class Game
       enemy.update
     end
 
+    @enemies_virus.each do |enemy|
+      enemy.update
+    end
 
     @player.check(@enemies)
 
