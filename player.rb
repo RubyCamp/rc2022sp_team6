@@ -2,6 +2,7 @@ require_relative 'bullet'
 
 class Player
   attr_accessor :mesh
+  attr_reader :bullets
 
   def initialize(x, y, z, renderer, scene, score)
     @mesh = Mittsu::Mesh.new(

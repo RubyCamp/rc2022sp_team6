@@ -100,9 +100,18 @@ class Game
     @player.check(@enemies)
 
     @score.update_points
-
+    @player.bullets.each do |bullet|
+     
+      if bullet.position.y <= -5
+        @scene.remove(bullet)
+      end
+    end
     @renderer.clear
     @renderer.render(@scene, @camera)
     @renderer.render(@score.scene, @score.camera)
+
+   
+    
+  
   end
 end
