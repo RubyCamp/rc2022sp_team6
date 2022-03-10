@@ -7,9 +7,9 @@ class Ruby
 
       loader = Mittsu::OBJMTLLoader.new
       @mesh = loader.load('ruby.obj', 'ruby.mtl')
-      @mesh.scale.x = 0.5
-      @mesh.scale.y = 0.5
-      @mesh.scale.z = 0.5
+      @mesh.scale.x = 0.1
+      @mesh.scale.y = 0.1
+      @mesh.scale.z = 0.1
       @mesh.position.set(x, y, z)
       @mesh.rotation.z = Math::PI/7
 

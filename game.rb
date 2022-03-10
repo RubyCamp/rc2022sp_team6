@@ -26,19 +26,24 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    10.times do
+    1.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
 
-    @ruby = Ruby.new(0, 0, -20, @renderer, @scene) #ruby追記
-    
-    @scene.add(@ruby.mesh)
+    #@ruby = Ruby.new(0, 0, -20, @renderer, @scene) #ruby追記
+    #@scene.add(@ruby.mesh)
+    @rubies = []
+    40.times do
+      ruby = Ruby.new((rand(1..11) - 6).to_f, (rand(1..11) - 6).to_f, -45.0, @renderer, @scene)
+      @scene.add(ruby.mesh)
+      @rubies << ruby
+    end
 
     # k = Time.now
     # @renderer.window.on_key_typed do |key|
-    #   case key 
+    #   case key
     #   when GLFW_KEY_SPACE
     #     n = Time.now
     #     if  n - k > 1
@@ -98,13 +103,18 @@ class Game
       @enemies_virus << enemy_virus
     end
 
-    @player = Player.new(0.0, 0, 20.0, @renderer, @scene, @score)
+    @player = Player.new(0.0, 0, -20.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end
 
   def play
-    @ruby.update
+    #@player.update
+    #@ruby.update
+    @rubies.each do |ruby|
+      ruby.update
+    end
+    # @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @enemies.each do |enemy|
       enemy.update(@player)
