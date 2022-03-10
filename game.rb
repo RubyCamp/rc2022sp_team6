@@ -172,7 +172,8 @@ class Game
       enemy.update
     end
 
-    if @renderer.window.key_down?(GLFW_KEY_ESCAPE)
+    # if @renderer.window.key_down?(GLFW_KEY_ESCAPE)
+    if @player.mesh.position.z < -50
       @game_end = true
     end
 
