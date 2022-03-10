@@ -32,8 +32,9 @@ class Game
       @enemies << enemy
     end
 
-    @ruby = Ruby.new(0, 0, -40, @renderer, @scene) #ruby追記
-    @scene.add(ruby.mesh)
+    @ruby = Ruby.new(0, 0, -20, @renderer, @scene) #ruby追記
+    
+    @scene.add(@ruby.mesh)
 
     # k = Time.now
     # @renderer.window.on_key_typed do |key|
