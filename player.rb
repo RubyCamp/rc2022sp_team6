@@ -10,6 +10,14 @@ class Player
       Mittsu::BoxGeometry.new(5, 5, 5),
       Mittsu::MeshBasicMaterial.new(color: 0x0ff00)
     )
+    @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/0.png')
+    @material_b = Mittsu::SpriteMaterial.new(map: @map_b, color: 0xffffff)
+    @sprite = Mittsu::Sprite.new(@material_b)
+    # if @mesh.position.z < -45
+
+    # end
+
+
     @mesh.position.set(x, y, z)
 
     @renderer = renderer
