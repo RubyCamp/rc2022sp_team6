@@ -40,4 +40,7 @@ class Enemy
   def invalid!
     @invalid = true
   end
+  def invalid!
+    @invalid = true
+  end
 end

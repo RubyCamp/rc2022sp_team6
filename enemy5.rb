@@ -24,3 +24,4 @@ class Enemy5  # pinkの障害物
     @invalid = true
   end
 end
+
