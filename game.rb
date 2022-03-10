@@ -9,6 +9,7 @@ require_relative 'enemy6'
 require_relative 'enemy7'
 require_relative 'enemy_coronavirus'
 require_relative 'goal_ruby'
+require_relative 'boss_bullet'
 
 
 
@@ -29,7 +30,7 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    20.times do
+    25.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
@@ -123,7 +124,7 @@ class Game
     end
 
     @enemies_virus = [] #コロナウイルス
-    6.times do
+    4.times do
       enemy_virus = Enemy_virus.new(rand(-3..5).to_f, rand(-3..5).to_f, 0.0, @renderer, @scene)
       @scene.add(enemy_virus.mesh)
       @enemies_virus << enemy_virus
@@ -182,12 +183,22 @@ class Game
     @player.check(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @score.update_points
+
     @player.bullets.each do |bullet|
       if bullet.mesh.position.y <= -10
         @scene.remove(bullet.mesh)
         @player.bullets.delete(bullet)
       end
     end
+
+    # @boss.bullets.each do |boss_bullet|
+    #   if boss_bullet.mesh.position.z >= 60
+    #     @scene.remove(boss_bullet.mesh)
+    #     @boss.bullets.delete(boss_bullet)
+    #   end
+    # end
+
+
     @enemies.delete_if {|enemy| enemy.invalid}
     @enemies2.delete_if {|enemy| enemy.invalid}
     @enemies4.delete_if {|enemy| enemy.invalid}

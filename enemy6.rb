@@ -12,7 +12,7 @@ class Enemy6  # mintの障害物
     @renderer = renderer
     @scene = scene
     @invalid = false
-    @distance = 5
+    @distance = 4
   end
 
   def update
