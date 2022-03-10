@@ -25,7 +25,7 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    30.times do
+    10.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
@@ -101,7 +101,7 @@ class Game
     # @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @enemies.each do |enemy|
-      enemy.update
+      enemy.update(@player)
     end
 
     @enemies2.each do |enemy|

@@ -100,9 +100,12 @@ class Player
         end
       end
       if @mesh.position.distance_to(enemy.mesh.position) <= (2)
-        @mesh.position.set(0, 0, 20)
+        reset_position
       end
 
+    end
+    def reset_position
+      @mesh.position.set(0, 0, 20)
     end
 
     # enemies2.each do |enemy|
