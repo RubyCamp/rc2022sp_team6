@@ -16,7 +16,7 @@ class Bullet
     # @gravitydown=1
     @scene = scene
     @invalid = false
-  end
+  end 
 
     
   def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)

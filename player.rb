@@ -109,7 +109,7 @@ class Player
     end
 
     # enemies2.each do |enemy|
-    #   @bullets.each do |bullet|
+    #   @bullets.each do |bullet| 
     #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
     #       enemy.mesh.material.color.set(0xff0000)
     #       @scene.remove(bullet.mesh)

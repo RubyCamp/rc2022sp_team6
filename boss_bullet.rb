@@ -11,7 +11,7 @@ class BossBullet
     p 111
     @mesh.position.set(x, y, z)
     p 1212
-    # @gravitytop=0.01
+    # @gravitytop=0.01 
     p 333
     # @gravitydown=1
     @scene = scene

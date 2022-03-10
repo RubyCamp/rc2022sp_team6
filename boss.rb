@@ -9,7 +9,7 @@ class Enemy
       Mittsu::BoxGeometry.new(1, 1, 1),
       Mittsu::MeshPhongMaterial.new(color: 0x0000ff)
     )
-    @mesh.position.set(x, y, z)
+    @mesh.position.set(x, y, z) 
 
     @renderer = renderer
     @scene = scene

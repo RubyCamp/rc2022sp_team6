@@ -32,7 +32,7 @@ class Game
     end
     # k = Time.now
     # @renderer.window.on_key_typed do |key|
-    #   case key
+    #   case key 
     #   when GLFW_KEY_SPACE
     #     n = Time.now
     #     if  n - k > 1
