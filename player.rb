@@ -1,3 +1,61 @@
+Hikoyan
+#0458
+
+かどた　みつや — 2022/03/07
+あ
+ひろた — 2022/03/07
+ああ
+かどた　みつや — 2022/03/07
+18:20分までには皆さんzoomに戻ってきてください。
+よろしくお願いします。
+かどた　みつや — 2022/03/07
+リーダー：かどた　みつや　副リーダー：うえだ　こういちろう
+かどた　みつや — 2022/03/07
+20:00から〜
+かどた　みつや — 2022/03/07
+終わりました。
+うえだこういちろう — 2022/03/08
+https://www.youtube.com/watch?v=uVfL4WUG9q8&t=19s
+YouTube
+tsukasan_jp
+【Smash hit】全ステージプレイ All Stage Play
+
+かどた　みつや — 2022/03/08
+チーム名：候補
+カス、カウス
+kasu
+kaus
+チーム名：カウス
+うえだこういちろう — 昨日 22:41
+Zoomミーティングに参加する
+https://us05web.zoom.us/j/83155107090?pwd=NGRlVkl5TnZZOWlXaFBDNGp0eVErZz09
+
+ミーティングID: 831 5510 7090
+パスコード: 98dKGJ
+Zoom Video
+Join our Cloud HD Video Meeting
+Zoom is the leader in modern enterprise video communications, with an easy, reliable cloud platform for video and audio conferencing, chat, and webinars across mobile, desktop, and room systems. Zoom Rooms is the original software-based conference room solution used around the world in board, conference, huddle, and training rooms, as well as ex...
+うえだこういちろう — 今日 17:04
+require_relative 'bullet'
+
+class Player
+  attr_accessor :mesh
+  attr_reader :bullets
+  attr_accessor :camera
+展開
+message.txt
+6 KB
+うえだこういちろう — 今日 18:48
+require_relative 'bullet'
+
+class Player
+  attr_accessor :mesh
+  attr_reader :bullets
+  attr_accessor :camera
+展開
+message.txt
+7 KB
+﻿
 require_relative 'bullet'
 
 class Player
@@ -10,15 +68,11 @@ class Player
       Mittsu::BoxGeometry.new(5, 5, 5),
       Mittsu::MeshBasicMaterial.new(color: 0x0ff00)
     )
-    @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/0.png')
-    @material_b = Mittsu::SpriteMaterial.new(map: @map_b, color: 0xffffff)
-    @sprite = Mittsu::Sprite.new(@material_b)
-    # if @mesh.position.z < -45
-
-    # end
 
 
-    @mesh.position.set(x, y, z)
+    @photo_cnt=0
+    # @mesh.position.set(x, y, z)
+
 
     @renderer = renderer
     @scene = scene
@@ -80,7 +134,7 @@ class Player
       end
     end
 
-
+   
 
 
 
@@ -95,8 +149,21 @@ class Player
       bullet.update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
       @bullets.delete_if {|bullet| bullet.invalid}
     end
+
+      # ゴール時の写真アップする動作の実行（ここから）
+    if  @mesh.position.z < -45 &&  @photo_cnt >=0 && @photo_cnt <=20
+        @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/0.png')
+        @material_b = Mittsu::SpriteMaterial.new(map: @map_b, color: 0xffffff)
+        @sprite = Mittsu::Sprite.new(@material_b)
+        @sprite.position.set(0,0,-50)
+        @sprite.scale.set(5.0,5.0,1.0)
+        @scene.add(@sprite)
+        @photo_cnt += 1
+    end
+    # （ここまで）
   end
 
+  #接触処理判定
   def check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
     enemies.each do |enemy|
       @bullets.each do |bullet|
@@ -107,7 +174,7 @@ class Player
           @score.points += 1
         end
       end
-      if @mesh.position.distance_to(enemy.mesh.position) <= (2)
+      if @mesh.position.distance_to(enemy.mesh.position) <= 2
         reset_position
       end
 
