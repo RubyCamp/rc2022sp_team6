@@ -14,7 +14,7 @@ class Score
       Mittsu::Sprite.new(material).tap do |sprite|
         sprite.scale.set(128, 128, 1.0)
         sprite.position.set(-(screen_width / 2.0) + 64 + dx * index, (screen_height / 2.0) - 64, 0.0)
-        @scene.add(sprite)
+        # @scene.add(sprite)
         @digits << sprite
       end
     end

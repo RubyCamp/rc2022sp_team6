@@ -29,7 +29,7 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    1.times do
+    20.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
@@ -83,8 +83,8 @@ class Game
     # end
 
     @enemies2 = [] # ノット
-    10.times do
-      enemy2 = Enemy2.new((rand(1..10) -3), (rand(1..5) -3).to_f, -25.0, @renderer, @scene)
+    15.times do
+      enemy2 = Enemy2.new(rand(-5..5), rand(-5..5).to_f, -25.0, @renderer, @scene)
       @scene.add(enemy2.mesh)
       @enemies2 << enemy2
     end
@@ -96,40 +96,40 @@ class Game
 
     @enemies4 = [] # オレンジの多面体（回転）Z=-10.0
     5.times do
-      enemy4 = Enemy4.new((rand(1..20) - 3).to_f, 3.0, -10.0, @renderer, @scene)
+      enemy4 = Enemy4.new(rand(-5..5).to_f, 3.0, -10.0, @renderer, @scene)
       @scene.add(enemy4.mesh)
       @enemies4 << enemy4
     end
 
     @enemies5 = [] # pink色の壁 Z=-5.0
-    2.times do
-      enemy5 = Enemy5.new(-5.0, (rand(1..5) -3).to_f, -5.0, @renderer, @scene)
+    4.times do
+      enemy5 = Enemy5.new(-5.0, rand(-5..5).to_f, -5.0, @renderer, @scene)
       @scene.add(enemy5.mesh)
       @enemies5 << enemy5
     end
 
     @enemies6 = [] # mintの球 Z=1.0
     1.times do
-      enemy6 = Enemy6.new(0.0, -8.0, 1.0, @renderer, @scene)
+      enemy6 = Enemy6.new(0.0, -5.0, 1.0, @renderer, @scene)
       @scene.add(enemy6.mesh)
       @enemies6 << enemy6
     end
 
     @enemies7 = [] # たまご色の壁 Z=15
-    2.times do
-      enemy7 = Enemy7.new(3.0, (rand(1..5) -3).to_f, 15.0, @renderer, @scene)
+    3.times do
+      enemy7 = Enemy7.new(3.0, rand(-4..3).to_f, 10.0, @renderer, @scene)
       @scene.add(enemy7.mesh)
       @enemies7 << enemy7
     end
 
     @enemies_virus = [] #コロナウイルス
-    5.times do
-      enemy_virus = Enemy_virus.new((rand(1..5) -3).to_f, (rand(1..5) -3).to_f, 0.0, @renderer, @scene)
+    6.times do
+      enemy_virus = Enemy_virus.new(rand(-3..5).to_f, rand(-3..5).to_f, 0.0, @renderer, @scene)
       @scene.add(enemy_virus.mesh)
       @enemies_virus << enemy_virus
     end
 
-    @player = Player.new(0.0, 0, -20.0, @renderer, @scene, @score)
+    @player = Player.new(0, 0, 20.0, @renderer, @scene, @score)
     @scene.add(@player.mesh)
     @player.mesh.add(@camera)
   end

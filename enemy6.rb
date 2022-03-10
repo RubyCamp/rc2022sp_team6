@@ -5,14 +5,14 @@ class Enemy6  # mintの障害物
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
       Mittsu::SphereGeometry.new(5, 32, 16),
-      Mittsu::MeshBasicMaterial.new(color: 0x6deeccf) # mint
+      Mittsu::MeshPhongMaterial.new(color: 0x6deeccf) # mint
     )
     @mesh.position.set(x, y, z)
 
     @renderer = renderer
     @scene = scene
     @invalid = false
-    @distance = 3
+    @distance = 5
   end
 
   def update

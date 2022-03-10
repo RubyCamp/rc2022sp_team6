@@ -3,16 +3,16 @@ class BossBullet
   attr_reader :invalid
 
   def initialize(x, y, z, scene, player)
-    puts 1111
+    # puts 1111
     @mesh = Mittsu::Mesh.new(
-      Mittsu::SphereGeometry.new(0.1, 16, 16),
-      Mittsu::MeshPhongMaterial.new(color: 0xDFD000)
+      Mittsu::BoxGeometry.new(0.3, 0.3, 0.5),
+      Mittsu::MeshPhongMaterial.new(color: 0x1f8e83)
     )
-    p 111
+    # p 111
     @mesh.position.set(x, y, z)
-    p 1212
-    # @gravitytop=0.01 
-    p 333
+    # p 1212
+    # @gravitytop=0.01
+    # p 333
     # @gravitydown=1
     @scene = scene
     # @invalid = false
@@ -27,9 +27,9 @@ class BossBullet
   end
 
   def update
-    @mesh.position.x += @vx / 50
-    @mesh.position.y += @vy / 50
-    @mesh.position.z += @vz / 50
+    @mesh.position.x += @vx / 54
+    @mesh.position.y += @vy / 54
+    @mesh.position.z += @vz / 54
     check
   end
 

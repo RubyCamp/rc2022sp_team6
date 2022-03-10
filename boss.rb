@@ -9,12 +9,12 @@ class Enemy
       Mittsu::BoxGeometry.new(1, 1, 1),
       Mittsu::MeshPhongMaterial.new(color: 0x0000ff)
     )
-    @mesh.position.set(x, y, z) 
+    @mesh.position.set(x, y, z)
 
     @renderer = renderer
     @scene = scene
     @invalid = false
-    @distance = 6
+    @distance = 2
     @lasttime = Time.now
     @bullets = []
   end
@@ -24,7 +24,7 @@ class Enemy
     @mesh.rotation.x += 0.1
     @mesh.rotation.y += 0.1
     nowtime=Time.now
-    if nowtime - @lasttime > (rand(5..30)) && (@mesh.position.z - player.mesh.position.z).abs <= 30
+    if nowtime - @lasttime > (rand(5..30)) && (@mesh.position.z - player.mesh.position.z).abs <= 60
       boss_bullet = BossBullet.new(@mesh.position.x, @mesh.position.y, @mesh.position.z, @scene, player)
 
       @scene.add(boss_bullet.mesh)

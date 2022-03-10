@@ -5,14 +5,14 @@ class Enemy2  # 小さい障害物ノット
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
       Mittsu::TorusKnotGeometry.new(0.5, 0.15),
-      Mittsu::MeshBasicMaterial.new(color: 0x009140)
+      Mittsu::MeshPhongMaterial.new(color: 0x009140)
     )
     @mesh.position.set(x, y, z)
 
     @renderer = renderer
     @scene = scene
     @invalid = false
-    @distance = 3
+    @distance = 2
   end
 
   def update

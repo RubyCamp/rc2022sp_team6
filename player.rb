@@ -7,7 +7,7 @@ class Player
 
   def initialize(x, y, z, renderer, scene, score)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(5, 5, 5),
+      Mittsu::BoxGeometry.new(2, 2, 2),
       Mittsu::MeshBasicMaterial.new(color: 0x0ff00)
     )
 
@@ -46,7 +46,7 @@ class Player
   end
 
   def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
-    @mesh.position.z -= 0.12
+    @mesh.position.z -= 0.2
 
 
     if @renderer.window.key_down?(GLFW_KEY_UP)

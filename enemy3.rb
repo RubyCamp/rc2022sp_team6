@@ -5,7 +5,7 @@ class Enemy3  # 赤い壁
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
       Mittsu::PlaneGeometry.new(50, 24),
-      Mittsu::MeshBasicMaterial.new(color: 0xFF0000)
+      Mittsu::MeshPhongMaterial.new(color: 0xFF0000)
     )
     @mesh.position.set(x, y, z)
 
