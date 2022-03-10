@@ -13,7 +13,7 @@ class Ruby
       @mesh.position.set(x, y, z)
       @mesh.rotation.z = Math::PI/7
 
-      r = 10
+      r = 5
       @theta = 0
       light_ruby = Mittsu::DirectionalLight.new(0xffffff)
       @mesh.add(light_ruby)
