@@ -8,6 +8,7 @@ require_relative 'enemy5'
 require_relative 'enemy6'
 require_relative 'enemy7'
 require_relative 'enemy_coronavirus'
+require_relative 'goal_ruby'
 
 
 
@@ -30,6 +31,10 @@ class Game
       @scene.add(enemy.mesh)
       @enemies << enemy
     end
+
+    @ruby = Ruby.new(0, 0, -40, @renderer, @scene) #ruby追記
+    @scene.add(ruby.mesh)
+
     # k = Time.now
     # @renderer.window.on_key_typed do |key|
     #   case key
@@ -99,6 +104,7 @@ class Game
 
   def play
     @player.update
+    @ruby.update
 
     @enemies.each do |enemy|
       enemy.update
