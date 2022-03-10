@@ -13,7 +13,7 @@ class Player
 
 
     @photo_cnt=0
-    # @mesh.position.set(x, y, z)
+    @mesh.position.set(x, y, z)
 
 
     @renderer = renderer
@@ -125,83 +125,5 @@ class Player
     def reset_position
       @mesh.position.set(0, 0, 20)
     end
-
-    # enemies2.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
-
-    # enemies4.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
-
-    # enemies5.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
-
-    # enemies6.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
-
-    # enemies7.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
-
-    # enemies.each do |enemy|
-    #   @bullets.each do |bullet|
-    #     if bullet.mesh.position.distance_to(enemy.mesh.position) <= 0.1 + 0.5
-    #       enemy.mesh.material.color.set(0xff0000)
-    #       @scene.remove(bullet.mesh)
-    #       @bullets.delete(bullet)
-    #       @score.points += 1
-    #     else
-    #       # 衝突してない
-    #     end
-    #   end
-    # end
   end
 end
