@@ -19,9 +19,11 @@ class Bullet
   end
     
   def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
+
     @mesh.position.z -= 0.45
     @gravitytop *= 1.12
     @mesh.position.y -= @gravitytop
+
     check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
   end
   def check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)

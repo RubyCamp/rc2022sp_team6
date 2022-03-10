@@ -4,7 +4,7 @@ class Enemy5  # pinkの障害物
 
   def initialize(x, y, z, renderer, scene)
     @mesh = Mittsu::Mesh.new(
-      Mittsu::BoxGeometry.new(5.0, 5.0, 0.5),
+      Mittsu::BoxGeometry.new(5.0, 5.0, 2),
       Mittsu::MeshPhongMaterial.new(color: 0xed6dee) # pink
     )
     @mesh.position.set(x, y, z)

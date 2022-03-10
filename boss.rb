@@ -24,7 +24,7 @@ class Enemy
     @mesh.rotation.x += 0.1
     @mesh.rotation.y += 0.1
     nowtime=Time.now
-    if nowtime - @lasttime > (rand(5..30)) && (@mesh.position.z - player.mesh.position.z).abs <= 50
+    if nowtime - @lasttime > (rand(5..30)) && (@mesh.position.z - player.mesh.position.z).abs <= 60
       boss_bullet = BossBullet.new(@mesh.position.x, @mesh.position.y, @mesh.position.z, @scene, player)
 
       @scene.add(boss_bullet.mesh)
