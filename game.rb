@@ -35,11 +35,34 @@ class Game
     #@ruby = Ruby.new(0, 0, -20, @renderer, @scene) #ruby追記
     #@scene.add(@ruby.mesh)
     @rubies = []
+=begin
     40.times do
       ruby = Ruby.new((rand(1..11) - 6).to_f, (rand(1..11) - 6).to_f, -45.0, @renderer, @scene)
       @scene.add(ruby.mesh)
       @rubies << ruby
     end
+=end
+    for i in 0..14 do
+      theta_ruby = Math::PI*24/180*i
+      ruby = Ruby.new(Math.cos(theta_ruby)*5, Math.sin(theta_ruby)*3, -45.0, @renderer, @scene)
+      @scene.add(ruby.mesh)
+      @rubies << ruby
+    end
+    for i in 0..9 do
+      theta_ruby = Math::PI*36/180*i
+      ruby = Ruby.new(Math.cos(theta_ruby)*10/3, Math.sin(theta_ruby)*2, -45.0, @renderer, @scene)
+      @scene.add(ruby.mesh)
+      @rubies << ruby
+    end
+    for i in 0..4 do
+      theta_ruby = Math::PI*72/180*i
+      ruby = Ruby.new(Math.cos(theta_ruby)*5/3, Math.sin(theta_ruby), -45.0, @renderer, @scene)
+      @scene.add(ruby.mesh)
+      @rubies << ruby
+    end
+    ruby = Ruby.new(0, 0, -45.0, @renderer, @scene)
+    @scene.add(ruby.mesh)
+    @rubies << ruby
 
     # k = Time.now
     # @renderer.window.on_key_typed do |key|

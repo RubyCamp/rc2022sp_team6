@@ -7,9 +7,9 @@ class Ruby
 
       loader = Mittsu::OBJMTLLoader.new
       @mesh = loader.load('ruby.obj', 'ruby.mtl')
-      @mesh.scale.x = 0.1
-      @mesh.scale.y = 0.1
-      @mesh.scale.z = 0.1
+      @mesh.scale.x = 0.15
+      @mesh.scale.y = 0.15
+      @mesh.scale.z = 0.15
       @mesh.position.set(x, y, z)
       @mesh.rotation.z = Math::PI/7
 
@@ -17,7 +17,7 @@ class Ruby
       @theta = 0
       light_ruby = Mittsu::DirectionalLight.new(0xffffff)
       @mesh.add(light_ruby)
-      light_ruby.position.set(r * Math.cos(@theta), 0.0, r * Math.sin(@theta))
+      light_ruby.position.set(r * Math.cos(@theta), -1.0, r * Math.sin(@theta))
 
 
       @scene = scene
