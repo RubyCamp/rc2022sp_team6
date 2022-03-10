@@ -26,7 +26,7 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    30.times do
+    10.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
@@ -38,7 +38,7 @@ class Game
 
     # k = Time.now
     # @renderer.window.on_key_typed do |key|
-    #   case key
+    #   case key 
     #   when GLFW_KEY_SPACE
     #     n = Time.now
     #     if  n - k > 1
@@ -104,12 +104,10 @@ class Game
   end
 
   def play
-    @player.update
     @ruby.update
-    # @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @enemies.each do |enemy|
-      enemy.update
+      enemy.update(@player)
     end
 
     @enemies2.each do |enemy|

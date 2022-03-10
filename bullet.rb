@@ -17,7 +17,6 @@ class Bullet
     @scene = scene
     @invalid = false
   end
-
     
   def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
     @mesh.position.z -= 0.45
