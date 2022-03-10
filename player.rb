@@ -98,7 +98,7 @@ class Player
         @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/ending_description.png')
         @material_b = Mittsu::SpriteMaterial.new(map: @map_b, color: 0xffffff)
         @sprite = Mittsu::Sprite.new(@material_b)
-        @sprite.position.set(0,0,-80)
+        @sprite.position.set(0,0,-70)
         @sprite.scale.set(25,15,1.0)
         @scene.add(@sprite)
         @photo_cnt += 1
