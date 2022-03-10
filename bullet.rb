@@ -1,7 +1,8 @@
 class Bullet
   attr_accessor :mesh
+  attr_reader :invalid
 
-  def initialize(x, y, z)
+  def initialize(x, y, z, scene)
     @mesh = Mittsu::Mesh.new(
       # Mittsu::BoxGeometry.new(0.05, 0.05, 0.25),
       # Mittsu::BoxGeometry.new(1, 1, 1, 4, 4, 4),
@@ -13,12 +14,25 @@ class Bullet
     @mesh.position.set(x, y, z)
     @gravitytop=0.01
     # @gravitydown=1
+    @scene = scene
+    @invalid = false
   end
 
     
-  def update
-    @mesh.position.z -= 0.45
+  def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
+    @mesh.position.z -= 0.3
     @gravitytop *= 1.12
-     @mesh.position.y -= @gravitytop
+    @mesh.position.y -= @gravitytop
+    check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
+  end
+  def check(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
+    (enemies + enemies2 + enemies4 + enemies5 + enemies6 + enemies7 ).each do |enemy|
+      if @mesh.position.distance_to(enemy.mesh.position) <= (enemy.distance)
+        @scene.remove(@mesh)
+        @invalid = true
+        enemy.invalid!
+        @scene.remove(enemy.mesh)
+      end
+    end
   end
 end

@@ -1,5 +1,6 @@
 class Enemy_virus
     attr_accessor :mesh
+    attr_reader :invalid, :distance
   
     def initialize(x, y, z, renderer, scene)
       @mesh = Mittsu::Group.new
@@ -76,10 +77,14 @@ class Enemy_virus
   
       @renderer = renderer
       @scene = scene
+      @invalid = false
     end
   
     def update
       @mesh.rotation.z += 0.1
       @mesh.rotation.y += 0.1
+    end
+    def invalid!
+      @invalid = true
     end
   end

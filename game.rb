@@ -98,7 +98,7 @@ class Game
   end
 
   def play
-    @player.update
+    # @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @enemies.each do |enemy|
       enemy.update
@@ -130,6 +130,8 @@ class Game
       enemy.update
     end
 
+    @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
+
     @player.check(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
     @score.update_points
@@ -137,9 +139,14 @@ class Game
       if bullet.mesh.position.y <= -10
         @scene.remove(bullet.mesh)
         @player.bullets.delete(bullet)
-        puts 1111
       end
     end
+    @enemies.delete_if {|enemy| enemy.invalid}
+    @enemies2.delete_if {|enemy| enemy.invalid}
+    @enemies4.delete_if {|enemy| enemy.invalid}
+    @enemies5.delete_if {|enemy| enemy.invalid}
+    @enemies6.delete_if {|enemy| enemy.invalid}
+    @enemies7.delete_if {|enemy| enemy.invalid}
     @renderer.clear
     @renderer.render(@scene, @camera)
     @renderer.render(@score.scene, @score.camera)
