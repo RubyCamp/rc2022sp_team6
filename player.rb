@@ -48,6 +48,7 @@ class Player
   def update(enemies, enemies2, enemies4, enemies5, enemies6, enemies7)
     @mesh.position.z -= 0.12
 
+
     if @renderer.window.key_down?(GLFW_KEY_UP)
       @mesh.position.y +=0.1
       if @mesh.position.y > 5.0
@@ -94,7 +95,7 @@ class Player
 
       # ゴール時の写真アップする動作の実行（ここから）
     if  @mesh.position.z < -45 &&  @photo_cnt >=0 && @photo_cnt <=20
-        @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/0.png')
+        @map_b = Mittsu::ImageUtils.load_texture(File.join File.dirname(__FILE__), './images/ending_description.png')
         @material_b = Mittsu::SpriteMaterial.new(map: @map_b, color: 0xffffff)
         @sprite = Mittsu::Sprite.new(@material_b)
         @sprite.position.set(0,0,-50)

@@ -13,9 +13,12 @@ require_relative 'goal_ruby'
 
 
 class Game
+  attr_accessor :game_end
   def initialize(renderer, screen_width, screen_height)
     @renderer = renderer
     renderer.auto_clear = false
+
+    @game_end = false
 
     @scene = Mittsu::Scene.new
     light = Mittsu::DirectionalLight.new(0xffffff, intensity = 1)
@@ -167,6 +170,10 @@ class Game
 
     @enemies_virus.each do |enemy|
       enemy.update
+    end
+
+    if @renderer.window.key_down?(GLFW_KEY_ESCAPE)
+      @game_end = true
     end
 
     @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
