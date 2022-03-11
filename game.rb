@@ -30,7 +30,7 @@ class Game
     @score = Score.new(screen_width, screen_height)
 
     @enemies = [] # 的
-    25.times do
+    20.times do
       enemy = Enemy.new((rand(-5..5)).to_f, (rand(-5..5)).to_f, -40, @renderer, @scene)
       @scene.add(enemy.mesh)
       @enemies << enemy
