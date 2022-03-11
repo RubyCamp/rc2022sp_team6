@@ -176,7 +176,7 @@ class Game
     # if @renderer.window.key_down?(GLFW_KEY_ESCAPE)
     if @player.mesh.position.z < -50
       @game_end = true
-    end
+    end 
 
     @player.update(@enemies, @enemies2, @enemies4, @enemies5, @enemies6, @enemies7)
 
@@ -191,12 +191,12 @@ class Game
       end
     end
 
-    @boss.bullets.each do |boss_bullet|
-      if boss_bullet.mesh.position.z >= 60
-        @scene.remove(boss_bullet.mesh)
-        @boss.bullets.delete(boss_bullet)
-      end
-    end
+    # @boss.bullets.each do |boss_bullet|
+    #   if boss_bullet.mesh.position.z >= 60
+    #     @scene.remove(boss_bullet.mesh)
+    #     @boss.bullets.delete(boss_bullet)
+    #   end
+    # end
 
 
     @enemies.delete_if {|enemy| enemy.invalid}
